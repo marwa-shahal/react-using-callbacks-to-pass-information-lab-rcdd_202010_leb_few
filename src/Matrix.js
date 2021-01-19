@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import learnSymbol from './data.js'
 import Cell from './Cell.js'
@@ -40,4 +41,40 @@ export default class Matrix extends Component {
 
 Matrix.defaultProps = {
   values: learnSymbol
+=======
+import React, { Component } from 'react';
+import learnSymbol from './data.js'
+import Cell from './Cell.js'
+import ColorSelector from './ColorSelector.js'
+
+export default class Matrix extends Component {
+
+  constructor() {
+    super();
+   
+  }
+
+  genRow = (vals) => (
+    vals.map((val, idx) => <Cell key={idx} color={val} />)
+  )
+
+  genMatrix = () => (
+    this.props.values.map((rowVals, idx) => <div key={idx} className="row">{this.genRow(rowVals)}</div>)
+  )
+
+  render() {
+    return (
+      <div id="app">
+        <ColorSelector />
+        <div id="matrix">
+          {this.genMatrix()}
+        </div>
+      </div>
+    )
+  }
+}
+
+Matrix.defaultProps = {
+  values: learnSymbol
+>>>>>>> d74716e9c9dcef26e1891c5558dbe7184ec247e6
 }
